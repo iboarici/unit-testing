@@ -16,8 +16,7 @@ public class DietPlan {
 	
 	@Override
 	public String toString() {
-		return "Diet [calories=" + calories + ", protein=" + protein + ", fat=" + fat + ", carbohydrate="
-				+ carbohydrate + "]";
+		return "Diet [calories=" + calories + ", protein=" + protein + ", fat=" + fat + ", carbohydrate=" + carbohydrate + "]";
 	}
 
 	public int getCalories() {
@@ -43,5 +42,12 @@ public class DietPlan {
 	}
 	public void setCarbohydrate(int carbohydrate) {
 		this.carbohydrate = carbohydrate;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		DietPlan dietPlan = (DietPlan) obj;
+		return (this.getCalories() == dietPlan.getCalories()) && (this.getProtein() == dietPlan.getProtein())
+				&& (this.getFat() == dietPlan.getFat()) && (this.getCarbohydrate() == dietPlan.getCarbohydrate());
 	}
 }
