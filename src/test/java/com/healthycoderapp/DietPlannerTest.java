@@ -41,4 +41,17 @@ class DietPlannerTest {
         //Then
         assertEquals(expectedDietPlan, actualDietPlan);
     }
+
+    @RepeatedTest(value = 10, name = RepeatedTest.LONG_DISPLAY_NAME)
+    void should_ReturnCorrectDietPlan_When_CorrectCoder_MultipleTimes() {
+        //Given
+        Coder coder = new Coder(1.82, 75.0, 26, Gender.MALE);
+        DietPlan expectedDietPlan = new DietPlan(2202, 110, 73, 275);
+
+        //When
+        DietPlan actualDietPlan =  dietPlanner.calculateDiet(coder);
+
+        //Then
+        assertEquals(expectedDietPlan, actualDietPlan);
+    }
 }

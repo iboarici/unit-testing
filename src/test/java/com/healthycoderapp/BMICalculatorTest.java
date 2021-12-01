@@ -1,14 +1,24 @@
 package com.healthycoderapp;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class BMICalculatorTest {
+
+    private String env;
+
+    @BeforeEach
+    void setUp() {
+        this.env = "dev";
+    }
 
     @Test
     void should_ReturnTrue_WhenDietRecommended() {
@@ -96,4 +106,19 @@ class BMICalculatorTest {
         //Then
         assertArrayEquals(expected, bmiScores);
     }
+
+    @Test
+    void should_ReturnCoderWithWorstBMIIn10Ms_When_CoderListHas10000Elements() {
+        assumeTrue(this.env.equals("dev"));
+        //Given
+        List<Coder> coders = new ArrayList<>();
+
+        for (int i = 0; i < 10000; i++) {
+            coders.add(new Coder(1.0 + i, 10.0 + i));
+        }
+        Executable executable = () -> BMICalculator.findCoderWithWorstBMI(coders);
+        //Then
+        assertTimeout(Duration.ofMillis(100), executable);
+    }
+
 }
