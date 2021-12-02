@@ -1,5 +1,9 @@
-package com.healthycoderapp;
+package com.healthycoderapp.junit5;
 
+import com.healthycoderapp.Coder;
+import com.healthycoderapp.DietPlan;
+import com.healthycoderapp.DietPlanner;
+import com.healthycoderapp.Gender;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

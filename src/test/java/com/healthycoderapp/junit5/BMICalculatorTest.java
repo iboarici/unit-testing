@@ -1,5 +1,7 @@
-package com.healthycoderapp;
+package com.healthycoderapp.junit5;
 
+import com.healthycoderapp.BMICalculator;
+import com.healthycoderapp.Coder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
